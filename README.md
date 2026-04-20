@@ -2,6 +2,8 @@
 
 This project builds a neural-network classifier that predicts whether a fixed-length bitstream passes or fails a CRC-8 check.
 
+*I highkey AI generated this readme, but the code is all me*
+
 ## What this implements
 
 - Synthetic dataset generation for payload + CRC codewords.

@@ -57,7 +57,7 @@ def prompt_choice(prompt: str, choices: dict[str, str], default: str) -> str:
             return raw
         print(f"Please choose one of: {', '.join(choices.keys())}")
 
-
+# stinky m1 macbook doesnt like cuda but we'll prefer cuda if it's supported
 def resolve_device(device_arg: str) -> str:
     if device_arg != "auto":
         return device_arg
@@ -188,7 +188,7 @@ def train_model(
     device: str,
     model: CRCNet | None = None,
 ) -> CRCNet:
-    torch.manual_seed(seed)
+    torch.manual_seed(seed) #pytorch my beloved
     random.seed(seed)
 
     if model is None:
@@ -330,7 +330,7 @@ def load_model(path: str, device: str) -> Tuple[CRCNet, int, int]:
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Neural-network CRC error detection experiment (V1)")
+    parser = argparse.ArgumentParser(description="Neural-network CRC error detection experiment")
     parser.add_argument("--samples", type=int, default=20000)
     parser.add_argument("--payload-len", type=int, default=8)
     parser.add_argument("--corruption-rate", type=float, default=0.5)
